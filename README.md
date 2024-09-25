@@ -24,11 +24,11 @@ Then, install the dependencies:
 
 ```
 cd noisefill
-npm install
+pnpm install
 ```
 
 Finally, run the app:
 
 ```
-npm start
+pnpm dev
 ```
