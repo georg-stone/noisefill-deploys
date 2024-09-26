@@ -81,15 +81,3 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
-
-@media screen and (max-width: 768px) {
-  .pink-noise {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 395px) {
-  .brown-noise {
-    display: none;
-  }
-}

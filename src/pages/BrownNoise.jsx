@@ -8,7 +8,8 @@ function BrownNoise() {
   const bufferSize = 4096;
 
   const initializeBrownNoise = () => {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioContext = new (window.AudioContext ||
+      window.webkitAudioContext)();
     audioContextRef.current = audioContext;
 
     let lastOut = 0.0;
@@ -28,7 +29,6 @@ function BrownNoise() {
     brownNoiseNodeRef.current = brownNoiseNode;
   };
 
-  // Play brown noise
   const playBrownNoise = () => {
     if (!isPlaying) {
       initializeBrownNoise();
@@ -46,6 +46,9 @@ function BrownNoise() {
 
   useEffect(() => {
     return () => {
+      if (window.location.pathname === "/brown-noise") {
+        document.title = "Brown Noise - Noisefill";
+      }
       if (brownNoiseNodeRef.current) {
         brownNoiseNodeRef.current.disconnect();
       }
@@ -60,9 +63,13 @@ function BrownNoise() {
       <div className="controls">
         <span className="mr-4">Brown Noise</span>
         {!isPlaying ? (
-          <Button variant="outline" onClick={playBrownNoise}>Play</Button>
+          <Button variant="outline" onClick={playBrownNoise}>
+            Play
+          </Button>
         ) : (
-          <Button variant="outline" onClick={pauseBrownNoise}>Pause</Button>
+          <Button variant="outline" onClick={pauseBrownNoise}>
+            Pause
+          </Button>
         )}
       </div>
     </div>

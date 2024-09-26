@@ -7,6 +7,8 @@ import Settings from "./pages/Settings";
 import BrownNoise from "./pages/BrownNoise";
 import Privacy from "./pages/Privacy";
 import Support from "./pages/Support";
+import PodcastsView from "./pages/PodcastsView";
+import Podcasts from "./pages/Podcasts";
 
 function App() {
   return (
@@ -17,12 +19,7 @@ function App() {
         </div>
         <div className="right flex gap-4">
           <a href="/white-noise">White Noise</a>
-          <a href="/pink-noise" className="pink-noise">
-            Pink Noise
-          </a>
-          <a href="/brown-noise" className="brown-noise">
-            Brown Noise
-          </a>
+          <a href="/podcasts">Podcasts</a>
           <a href="/settings">Settings</a>
         </div>
       </header>
@@ -35,6 +32,8 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/podcasts" element={<Podcasts />} />
+          <Route path="/podcasts/view" element={<PodcastsView />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
