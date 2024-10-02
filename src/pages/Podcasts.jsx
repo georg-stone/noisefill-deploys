@@ -23,10 +23,7 @@ export default function Podcasts() {
     function addPodcast() {
       let copiedFeedUrl = feedUrl;
       setFeedUrl("");
-      fetch(
-        "https://us-central1-awesomerssfeedreader.cloudfunctions.net/getFeed?url=" +
-          copiedFeedUrl
-      )
+      fetch("https://corsproxy.io/?" + copiedFeedUrl)
         .then((response) => response.text())
         .then((data) => {
           const parser = new DOMParser();

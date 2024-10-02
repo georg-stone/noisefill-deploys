@@ -59,10 +59,7 @@ function PodcastsView() {
         let podcastId = queryParams.get("feedUrl");
 
         if (podcastId) {
-          const response = await fetch(
-            "https://us-central1-awesomerssfeedreader.cloudfunctions.net/getFeed?url=" +
-              podcastId
-          );
+          const response = await fetch("https://corsproxy.io/?" + podcastId);
           const data = await response.text();
           const parser = new DOMParser();
           const xmlDoc = parser.parseFromString(data, "text/xml");
