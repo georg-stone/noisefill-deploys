@@ -9,23 +9,29 @@ import Privacy from "./pages/Privacy";
 import Support from "./pages/Support";
 import PodcastsView from "./pages/PodcastsView";
 import Podcasts from "./pages/Podcasts";
+import Embed from "./pages/Embed";
 
 function App() {
   return (
     <div className="grid grid-rows-[60px_calc(100vh-60px)] grid-flow-col">
-      <header className="flex justify-between items-center p-4 px-6 h-[60px]">
-        <div className="left">
-          <a href="/">Noisefill</a>
-        </div>
-        <div className="right flex gap-4">
-          <a href="/white-noise">White Noise</a>
-          <a href="/podcasts">Podcasts</a>
-          <a href="/settings">Settings</a>
-        </div>
-      </header>
+      {window.location.pathname != "/embed" ? (
+        <header className="flex justify-between items-center p-4 px-6 h-[60px]">
+          <div className="left">
+            <a href="/">Noisefill</a>
+          </div>
+          <div className="right flex gap-4">
+            <a href="/white-noise">White Noise</a>
+            <a href="/podcasts">Podcasts</a>
+            <a href="/settings">Settings</a>
+          </div>
+        </header>
+      ) : (
+        <></>
+      )}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/embed" element={<Embed />} />
           <Route path="/white-noise" element={<WhiteNoise />} />
           <Route path="/pink-noise" element={<PinkNoise />} />
           <Route path="/brown-noise" element={<BrownNoise />} />
