@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button } from "../components/ui/Button";
+import { Button } from "../components/ui/button";
 
 function WhiteNoise() {
   const [isPlaying, setIsPlaying] = useState(false);
